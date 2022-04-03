@@ -1,8 +1,8 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import { render, screen } from "@testing-library/react";
+import App from "./App";
 
-test('renders Home page', () => {
+test("renders Home page", () => {
   render(<App />);
-  const divElement = screen.getByText(/Hello From the budget/i);
+  const divElement = screen.getByText(/Budget/i);
   expect(divElement).toBeInTheDocument();
 });
