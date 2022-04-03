@@ -1,119 +1,26 @@
-import {
-  Button,
-  ButtonGroup,
-  ButtonOr,
-  Container,
-  Form,
-  FormGroup,
-  FormInput,
-  Grid,
-  GridColumn,
-  GridRow,
-  Header,
-  Icon,
-  Segment,
-  Statistic,
-  StatisticLabel,
-  StatisticValue,
-} from "semantic-ui-react";
+import { Container } from "semantic-ui-react";
 import "./App.css";
+import DisplayBalance from "./components/DisplayBalance.component";
+import DisplayBalances from "./components/DisplayBalances.component";
+import EntryLine from "./components/EntryLine.component";
+import MainHeader from "./components/mainHeader.component";
+import NewEntryForm from "./components/NewEntryForm.Component";
 
 function App() {
   return (
     <Container>
-      <Header as="h1">Budget</Header>
-      <Statistic>
-        <StatisticLabel>Your Balance</StatisticLabel>
-        <StatisticValue>2,500</StatisticValue>
-        <Segment textAlign="center">
-          <Grid columns={2} divided>
-            <GridRow>
-              <GridColumn>
-                <Statistic size="tiny" color="green">
-                  <StatisticLabel style={{ textAlign: "left" }}>
-                    Income:
-                  </StatisticLabel>
-                  <StatisticValue>1,500</StatisticValue>
-                </Statistic>
-              </GridColumn>
-              <GridColumn>
-                <Statistic size="tiny" color="red">
-                  <StatisticLabel style={{ textAlign: "left" }}>
-                    Expenses:
-                  </StatisticLabel>
-                  <StatisticValue>1,500</StatisticValue>
-                </Statistic>
-              </GridColumn>
-            </GridRow>
-          </Grid>
-        </Segment>
-      </Statistic>
-      <Header as={"h3"}>History</Header>
-      <Segment color="red">
-        <Grid columns={3} textAlign="right">
-          <GridRow>
-            <GridColumn width={10} textAlign="left">
-              something
-            </GridColumn>
-            <GridColumn width={3}>10,200</GridColumn>
-            <GridColumn width={3}>
-              <Icon name="edit" />
-              <Icon name="trash" />
-            </GridColumn>
-          </GridRow>
-        </Grid>
-      </Segment>
-      <Segment color="green">
-        <Grid columns={3} textAlign="right">
-          <GridRow>
-            <GridColumn width={10} textAlign="left">
-              something
-            </GridColumn>
-            <GridColumn width={3}>10,200</GridColumn>
-            <GridColumn width={3}>
-              <Icon name="edit" />
-              <Icon name="trash" />
-            </GridColumn>
-          </GridRow>
-        </Grid>
-      </Segment>
-      <Segment color="red">
-        <Grid columns={3} textAlign="right">
-          <GridRow>
-            <GridColumn width={10} textAlign="left">
-              something
-            </GridColumn>
-            <GridColumn width={3}>10,200</GridColumn>
-            <GridColumn width={3}>
-              <Icon name="edit" />
-              <Icon name="trash" />
-            </GridColumn>
-          </GridRow>
-        </Grid>
-      </Segment>
-      <Header as={"h3"}>Add new transactions</Header>
-      <Form unstackable>
-        <FormGroup>
-          <FormInput
-            placeholder="new Shiny thing"
-            icon={"tags"}
-            width={12}
-            label="Description"
-          />
-          <FormInput
-            width={4}
-            placeholder="100.00"
-            icon={"dollar"}
-            label="Value"
-            iconPosition="left"
-          />
-        </FormGroup>
-        <ButtonGroup style={{ marginTop: 20 }}>
-          <Button>Cancle</Button>
-          <ButtonOr />
-          <Button primary>Ok</Button>
-        </ButtonGroup>
-      </Form>
+      <MainHeader title={"Budget"} />
+      <DisplayBalance title={"Your Balance"} value="23,231" size="small" />
+      <DisplayBalances />
+
+      <MainHeader type={"h3"} title="History" />
+      <MainHeader type={"h3"} title="Add new transactions" />
+      <EntryLine value={"12,222"} description={"new laptop"} isExpence={true} />
+      <EntryLine value={"12,222"} description={"new laptop"} isExpence={true} />
+      <EntryLine value={"12,222"} description={"new laptop"} />
+      <EntryLine value={"12,222"} description={"new laptop"} />
+      <EntryLine value={"12,222"} description={"new laptop"} />
+      <NewEntryForm />
     </Container>
   );
 }
