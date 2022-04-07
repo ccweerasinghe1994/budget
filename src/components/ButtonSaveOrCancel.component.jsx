@@ -1,16 +1,16 @@
 import { Button, ButtonGroup, ButtonOr } from "semantic-ui-react";
 
-const ButtonSaveOrCancle = ({
+const ButtonSaveOrCancel = ({
   addEntry,
   value,
   description,
   clearForm,
-  isExpence,
+  isExpense,
 }) => {
   const entryData = {
     value,
     description,
-    isExpence,
+    isExpense,
   };
   function onClick() {
     addEntry(entryData);
@@ -18,7 +18,7 @@ const ButtonSaveOrCancle = ({
   }
   return (
     <ButtonGroup style={{ marginTop: 20 }}>
-      <Button>Cancle</Button>
+      <Button>Cancel</Button>
       <ButtonOr />
       <Button onClick={onClick} primary>
         Ok
@@ -27,4 +27,4 @@ const ButtonSaveOrCancle = ({
   );
 };
 
-export default ButtonSaveOrCancle;
+export default ButtonSaveOrCancel;

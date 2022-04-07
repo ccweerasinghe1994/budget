@@ -1,4 +1,3 @@
-import { useState } from "react";
 import {
   Container,
   Grid,
@@ -7,19 +6,18 @@ import {
   Icon,
   Segment,
 } from "semantic-ui-react";
-import ModalEdit from "./ModalEdit";
 
 const EntryLine = ({
-  isExpence = false,
+  isExpense = false,
   description,
   value,
   deleteEntry,
   id,
+  editEntry,
 }) => {
-  const [isOpen, setIsOpen] = useState(false);
   return (
     <Container>
-      <Segment color={isExpence ? "red" : "green"}>
+      <Segment color={isExpense ? "red" : "green"}>
         <Grid columns={3} textAlign="right">
           <GridRow>
             <GridColumn width={10} textAlign="left">
@@ -27,13 +25,12 @@ const EntryLine = ({
             </GridColumn>
             <GridColumn width={3}>{value}</GridColumn>
             <GridColumn width={3}>
-              <Icon name="edit" onClick={() => setIsOpen(true)} />
+              <Icon name="edit" onClick={() => editEntry(id)} />
               <Icon name="trash" onClick={() => deleteEntry(id)} />
             </GridColumn>
           </GridRow>
         </Grid>
       </Segment>
-      <ModalEdit setIsOpen={setIsOpen} isOpen={isOpen} />
     </Container>
   );
 };
